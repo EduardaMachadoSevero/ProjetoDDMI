@@ -133,7 +133,8 @@ export default class App extends React.Component{
         shadowOffset: {width: 0,height: 5,},
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-        elevation: 5,             
+        elevation: 5,         
+            
       
   },
         botaoS:{  
