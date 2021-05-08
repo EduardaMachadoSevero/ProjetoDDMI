@@ -1,5 +1,9 @@
+//// EDUARDA MACHADO SEVERO - 6° INFO ////
+
 import * as React from 'react';
 import {Text, TouchableOpacity, TextInput, View, StyleSheet, StatusBar} from 'react-native';
+
+import MeuEstilo from './src/componentes/meuestilo'
 
 export default class App extends React.Component{
   state={
@@ -92,113 +96,9 @@ export default class App extends React.Component{
        
       </TouchableOpacity>
       </View>
-
       
     )
   }
-}       //edição dos botões
+}      
 
-    const MeuEstilo = StyleSheet.create({
-
-        fontegrande:{
-        fontSize: 48,
-        //backgroundColor:'#333333',
-        color:'#111111',
-        flexGrow: 3,
-        justifyContent: "center",
-        alignItems: "center",
-        padding: 23,
-   },
-
-        container:{
-        padding: 23,
-   },
-
-        input:{
-        margin: 15,
-        height: 40,
-        borderColor: '#613F75',
-        borderWidth: 3,
-        borderRadius: 4,
-        backgroundColor:'#FAF8F8',
-        
-   },
-        botao:{  
-        backgroundColor: '#e5c3d1',
-        padding: 10,
-        margin: 15,
-        height: 40,
-        borderRadius: 20,
-        shadowColor: "#000",
-        shadowOffset: {width: 0,height: 5,},
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,         
-            
-      
-  },
-        botaoS:{  
-        backgroundColor: '#613F75',
-        padding: 10,
-        margin: 15,
-        height: 40,
-        borderRadius: 20,
-        shadowColor: "#000",
-        shadowOffset: {width: 0,height: 5,},
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84, 
-        elevation: 5,    
-}, 
-        botaoM:{  
-        backgroundColor: '#7D82B8',
-        padding: 10,
-        margin: 15,
-        height: 40,
-        borderRadius: 20,
-        shadowColor: "#000",
-        shadowOffset: {width: 0,height: 5,},
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,   
-},
-        botaoD:{  
-        backgroundColor: '#DF9BFB',
-        padding: 10,
-        margin: 15,
-        height: 40,
-        borderRadius: 20,
-        shadowColor: "#000",
-        shadowOffset: {width: 0,height: 5,},
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84, 
-        elevation: 5,  
-  
-},
-
-       textoBotaoSomar:{
-       color:'white',
-       alignItems:'center',
-       textAlign:'center',
-   },
-       textoBotaoSubtrair:{  
-       color:'white',
-       alignItems:'center',
-       textAlign:'center',
-},
-       textoBotaoMultiplicar:{   
-       color:'white',
-       alignItems:'center',
-       textAlign:'center',
-},
-       textoBotaoDividir:{  
-       color:'white',
-       alignItems:'center',
-       textAlign:'center',
-},
-       switchstilo:{
-       flex: 1,
-       alignItems: 'center',
-       justifyContent: 'center',
-  }
-
-})
+    
