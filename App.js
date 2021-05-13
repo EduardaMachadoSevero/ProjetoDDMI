@@ -9,9 +9,9 @@ export default class App extends React.Component{
   state={
     valor1: 0.0,
     valor2: 0.0,
-    resultado1: 0.0,
+    resultado: 0.0,
     valorRadio: 'soma',
-    resultado2: 0.0
+    
   }
   calcular(){
     if(this.state.valorRadio=='soma'){
