@@ -1,15 +1,31 @@
 //// EDUARDA MACHADO SEVERO - 6° INFO ////
 
 import * as React from 'react';
-import {Text, TouchableOpacity, TextInput, View, StyleSheet, StatusBar} from 'react-native';
-
-import MeuEstilo from './src/componentes/meuestilo'
+import { TouchableOpacity, TextInput, View, ScrollView, StatusBar} from 'react-native';
+import {RadioButton, Text} from 'react-native-paper';
+import MeuEstilo from './src/component/meunovoestilo'
 
 export default class App extends React.Component{
   state={
     valor1: 0.0,
     valor2: 0.0,
-    resultado: 0.0
+    resultado1: 0.0,
+    valorRadio: 'soma',
+    resultado2: 0.0
+  }
+  calcular(){
+    if(this.state.valorRadio=='soma'){
+      alert(this.state.valorRadio);
+    }
+    if(this.state.valorRadio=='subtrair'){
+      alert(this.state.valorRadio);
+    }
+    if(this.state.valorRadio=='multiplicar'){
+      alert(this.state.valorRadio);
+    }
+    if(this.state.valorRadio=='dividir'){
+      alert(this.state.valorRadio);
+    }
   }
   atualizaValor1=(number)=>{
     this.setState({valor1:number})
@@ -20,27 +36,28 @@ export default class App extends React.Component{
   
   soma(){ //somar os valores
 
-    this.state.resultado= parseFloat(this.state.valor1) + parseFloat(this.state.valor2);
-    alert(this.state.resultado);
+    this.state.valorRadio= parseFloat(this.state.valor1) + parseFloat(this.state.valor2);
+    
   }
 
   subtrair(){ //subtrair os valores
 
-    this.state.resultado= parseFloat(this.state.valor1) - parseFloat(this.state.valor2);
-    alert(this.state.resultado);
+    this.state.valorRadio= parseFloat(this.state.valor1) - parseFloat(this.state.valor2);
+   
   }
 
   multiplicar(){ //multiplicar os valores
 
-    this.state.resultado= parseFloat(this.state.valor1) * parseFloat(this.state.valor2);
-    alert(this.state.resultado);
+    this.state.valorRadio= parseFloat(this.state.valor1) * parseFloat(this.state.valor2);
+    
   }
 
   dividir(){ //dividir os valores
 
-    this.state.resultado= parseFloat(this.state.valor1) / parseFloat(this.state.valor2);
-    alert(this.state.resultado);
-  }
+    this.state.valorRadio= parseFloat(this.state.valor1) / parseFloat(this.state.valor2);
+  
+  
+}
 
   render(){     ///criar os campos para digitar os valores///
     return(
@@ -64,37 +81,37 @@ export default class App extends React.Component{
         onChangeText = {this.atualizaValor2}
         keyboardType ='numeric'/>
 
-      <TouchableOpacity style = {MeuEstilo.botao} 
-      onPress={()=>this.soma(this.state.valor1, this.state.valor2, this.state.resultado)} //chamar as funções
-      >
-        
-       <Text style = {MeuEstilo.textoBotaoSomar}> SOMAR </Text>
-       
-      </TouchableOpacity>
+<ScrollView style = {{marginTop:30}}>
+        <Text>Radio Button utilizando classe Expo</Text>
+        <RadioButton.Group
+        onValueChange = {valorRadio => this.setState({valorRadio})}
+        value = {this.state.valorRadio}>
+          <View>
+            <Text>Soma</Text>
+            <RadioButton value='soma'/>
+          </View>
+          <View>
+            <Text>Subtrair</Text>
+            <RadioButton value='subtrair'/>
+          </View>
+          <View>
+            <Text>Multiplicar</Text>
+            <RadioButton value='multiplicar'/>
+          </View>
+          <View>
+            <Text>dividir</Text>
+            <RadioButton value='dividir'/>
+          </View>
+        </RadioButton.Group>
 
-      <TouchableOpacity style = {MeuEstilo.botaoS} 
-      onPress={()=>this.subtrair(this.state.valor1, this.state.valor2, this.state.resultado)} 
+        <TouchableOpacity style = {MeuEstilo.botao} 
+      onPress={()=>this.calcular(this.state.valorRadio)} //chamar as funções
       >
         
-       <Text style = {MeuEstilo.textoBotaoSubtrair}> SUBTRAIR </Text>
+       <Text style = {MeuEstilo.textoBotao}> CALCULAR</Text>
        
       </TouchableOpacity>
-
-      <TouchableOpacity style = {MeuEstilo.botaoM} 
-      onPress={()=>this.multiplicar(this.state.valor1, this.state.valor2, this.state.resultado)} 
-      >
-        
-       <Text style = {MeuEstilo.textoBotaoMultiplicar}> MULTIPLICAR </Text>
-       
-      </TouchableOpacity>
-
-      <TouchableOpacity style = {MeuEstilo.botaoD} 
-      onPress={()=>this.dividir(this.state.valor1, this.state.valor2, this.state.resultado)} 
-      >
-        
-       <Text style = {MeuEstilo.textoBotaoDividir}> DIVIDIR </Text>
-       
-      </TouchableOpacity>
+      </ScrollView>
       </View>
       
     )
