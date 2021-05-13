@@ -9,22 +9,21 @@ export default class App extends React.Component{
   state={
     valor1: 0.0,
     valor2: 0.0,
-    resultado: 0.0,
     valorRadio: 'soma',
     
   }
   calcular(){
-    if(this.state.valorRadio=='soma'){
-      alert(this.state.valorRadio);
+  if(this.state.valorRadio=='soma'){
+      alert(this.state.valorRadio = parseFloat(this.state.valor1) + parseFloat(this.state.valor2));
     }
-    if(this.state.valorRadio=='subtrair'){
-      alert(this.state.valorRadio);
+  if(this.state.valorRadio=='subtrair'){
+      alert(this.state.valorRadio = parseFloat(this.state.valor1) - parseFloat(this.state.valor2));
     }
-    if(this.state.valorRadio=='multiplicar'){
-      alert(this.state.valorRadio);
+  if(this.state.valorRadio=='multiplicar'){
+      alert(this.state.valorRadio = parseFloat(this.state.valor1) * parseFloat(this.state.valor2));
     }
-    if(this.state.valorRadio=='dividir'){
-      alert(this.state.valorRadio);
+  if(this.state.valorRadio=='dividir'){
+      alert(this.state.valorRadio = parseFloat(this.state.valor1) / parseFloat(this.state.valor2))
     }
   }
   atualizaValor1=(number)=>{
@@ -34,30 +33,6 @@ export default class App extends React.Component{
     this.setState({valor2:number})
   }
   
-  soma(){ //somar os valores
-
-    this.state.valorRadio= parseFloat(this.state.valor1) + parseFloat(this.state.valor2);
-    
-  }
-
-  subtrair(){ //subtrair os valores
-
-    this.state.valorRadio= parseFloat(this.state.valor1) - parseFloat(this.state.valor2);
-   
-  }
-
-  multiplicar(){ //multiplicar os valores
-
-    this.state.valorRadio= parseFloat(this.state.valor1) * parseFloat(this.state.valor2);
-    
-  }
-
-  dividir(){ //dividir os valores
-
-    this.state.valorRadio= parseFloat(this.state.valor1) / parseFloat(this.state.valor2);
-  
-  
-}
 
   render(){     ///criar os campos para digitar os valores///
     return(
@@ -81,13 +56,13 @@ export default class App extends React.Component{
         onChangeText = {this.atualizaValor2}
         keyboardType ='numeric'/>
 
-<ScrollView style = {{marginTop:30}}>
-        <Text>Radio Button utilizando classe Expo</Text>
-        <RadioButton.Group
+        <ScrollView style = {{marginTop:20, marginLeft:20}}>
+        <Text style = {{textAlign:'center'}}>Operações matemáticas</Text>
+        <RadioButton.Group 
         onValueChange = {valorRadio => this.setState({valorRadio})}
         value = {this.state.valorRadio}>
           <View>
-            <Text>Soma</Text>
+            <Text>Somar</Text>
             <RadioButton value='soma'/>
           </View>
           <View>
@@ -99,7 +74,7 @@ export default class App extends React.Component{
             <RadioButton value='multiplicar'/>
           </View>
           <View>
-            <Text>dividir</Text>
+            <Text>Dividir</Text>
             <RadioButton value='dividir'/>
           </View>
         </RadioButton.Group>
